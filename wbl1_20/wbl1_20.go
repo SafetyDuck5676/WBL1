@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// Функция, которая переворачивает слова в строке
+// Функция, которая переворачивает порядок слов в строке
 func reverseWords(sentence string) string {
 	// Разделяем строку на слова
 	words := strings.Split(sentence, " ")
@@ -15,8 +15,8 @@ func reverseWords(sentence string) string {
 
 	// Перебираем слова в обратном порядке
 	for i := len(words) - 1; i >= 0; i-- {
-		// Добавляем каждое перевернутое слово в новый слайс
-		reversedWords = append(reversedWords, reverseString(words[i]))
+		// Добавляем каждое слово в новый слайс
+		reversedWords = append(reversedWords, words[i])
 	}
 
 	// Соединяем перевернутые слова в одну строку
@@ -26,25 +26,11 @@ func reverseWords(sentence string) string {
 	return reversedSentence
 }
 
-// Функция, которая переворачивает строку
-func reverseString(s string) string {
-	// Преобразуем строку в слайс символов
-	runes := []rune(s)
-
-	// Перебираем символы в слайсе и меняем их местами
-	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
-		runes[i], runes[j] = runes[j], runes[i]
-	}
-
-	// Преобразуем слайс символов обратно в строку
-	return string(runes)
-}
-
 func main() {
 	// Тестовая строка
-	sentence := "snow dog sun — sun dog snow"
+	sentence := "snow dog sun"
 
-	// Вызываем функцию для переворачивания слов
+	// Вызываем функцию для переворачивания порядка слов
 	reversed := reverseWords(sentence)
 
 	// Выводим результат
